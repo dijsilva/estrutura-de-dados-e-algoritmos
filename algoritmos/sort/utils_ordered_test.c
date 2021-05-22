@@ -1,5 +1,5 @@
 #include <stdlib.h>
-#include "ordered_test.h"
+#include "utils_ordered_test.h"
 
 int is_ordered(int* numbers, size_t size){
     if (size == 1){

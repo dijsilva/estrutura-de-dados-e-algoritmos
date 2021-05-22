@@ -1,14 +1,14 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-#include "../utils/gen_numbers.h"
-#include "../utils/ordered_test.h"
+#include "utils_gen_numbers.h"
+#include "utils_ordered_test.h"
 
 #include "insertion_sort.h"
 
 #define MAX_ITEMS 10
 
-int main(){
+int main() {
     int* numbers = gen_numbers(MAX_ITEMS, 20);
 
     for (int i = 0; i < MAX_ITEMS; i++){

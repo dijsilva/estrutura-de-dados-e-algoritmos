@@ -1,6 +1,6 @@
 #include <stdlib.h>
 #include <time.h>
-#include "gen_numbers.h"
+#include "utils_gen_numbers.h"
 
 
 int* gen_numbers(int n, int max){
