@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include "heap_sort.h"
 
-void heapfy(int* vector, size_t elem_index, size_t size){
+void maxheapify(int* vector, size_t elem_index, size_t size){
   int left_child;
   int right_child;
   int largest_element;
@@ -19,17 +19,17 @@ void heapfy(int* vector, size_t elem_index, size_t size){
       largest_element = right_child;
     }
 
-    if (largest_element == elem_index) {
+    if (largest_element != elem_index) {
+      // swap elements of node
+      temp_element = vector[elem_index];
+      vector[elem_index] = vector[largest_element];
+      vector[largest_element] = temp_element;
+
+      // go to largest element after swap
+      elem_index = largest_element;
+    } else {
       break;
     }
-
-    // swap elements of node
-    temp_element = vector[elem_index];
-    vector[elem_index] = vector[largest_element];
-    vector[largest_element] = temp_element;
-
-    // go to largest element after swap
-    elem_index = largest_element;
   }
 }
 
@@ -38,7 +38,7 @@ void build_heap(int* vector, size_t size) {
   int middle = size / 2;
 
   for (int i = middle; i >= 0; i--) {
-    heapfy(vector, i, size);
+    maxheapify(vector, i, size);
   }
 }
 
@@ -50,6 +50,6 @@ void heap_sort(int* vector, size_t size){
     vector[i] = vector[0];
     vector[0] = temp_element;
 
-    heapfy(vector, 0, i);
+    maxheapify(vector, 0, i);
   }
 }
